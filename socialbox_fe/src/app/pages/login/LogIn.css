@@ -1,0 +1,140 @@
+.login_container {
+  width: 505px;
+  /* height: 701px; */
+  border-radius: 10px;
+  border: 0.5px solid #878787;
+  background: #fff;
+  box-shadow: 0px 4px 64px 0px rgba(0, 0, 0, 0.05);
+  padding: 35px;
+}
+
+.page {
+  padding-top: 126px;
+}
+
+.login_welcome {
+  color: #000;
+  font-family: Poppins;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin-bottom: 29px;
+}
+
+.login_title {
+  color: #000;
+  font-family: Poppins;
+  font-size: 31px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 48px;
+}
+
+.login_label {
+  color: #000;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 9px;
+}
+
+.login_input_username {
+  border-radius: 6px;
+  border: 0.6px solid #282828;
+  background: #fff;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 17px;
+  color: #000;
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 38px;
+  width: -webkit-fill-available;
+}
+.login_input_password {
+  border-radius: 6px;
+  border: 0.6px solid #282828;
+  background: #fff;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 17px;
+  color: #000;
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 23px;
+  width: -webkit-fill-available;
+}
+
+.login_remember {
+  color: #000;
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin-left: 10px;
+}
+
+.login_forgot {
+  color: #4d4d4d;
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.login_button {
+  border-radius: 6px;
+  background: #000;
+  color: #fff;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 17px 0px;
+  width: 100%;
+  margin-top: 38px;
+  margin-bottom: 56px;
+}
+
+.login_signup {
+  color: #7d7d7d;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.login_signup_bold {
+  color: #000;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.login_errorMessage {
+  color: #ff0000; /* Red color for the error text */
+  background-color: #ffecec; /* Light red background */
+  border: 1px solid #ffadad; /* Red border */
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
