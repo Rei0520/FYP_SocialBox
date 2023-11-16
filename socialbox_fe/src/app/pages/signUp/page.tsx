@@ -1,11 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import "./signup.css";
+import Wallet from "@/app/components/wallet/wallet";
 
 export const SignUp = () => {
   // State to store form inputs
+  const [wallet, setWallet] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     userName: "",
@@ -60,6 +62,7 @@ export const SignUp = () => {
     if (validate()) {
       console.log("Form Submitted", formData);
       // Here, you can send data to server or perform other actions
+      setWallet(true);
     }
   };
 
@@ -147,6 +150,7 @@ export const SignUp = () => {
           </Link>
         </div>
       </div>
+      <Wallet isOpen={wallet} onRequestClose={() => setWallet(false)} />
     </div>
   );
 };

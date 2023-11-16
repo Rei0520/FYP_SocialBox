@@ -145,3 +145,11 @@ body {
 .full_height {
   height: 100%;
 }
+
+.flex_column {
+  flex-direction: column;
+}
+
+.text_align {
+  text-align: center;
+}
