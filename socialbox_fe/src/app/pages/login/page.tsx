@@ -41,6 +41,7 @@ export const LogIn = () => {
     e.preventDefault();
     if (validateForm()) {
       onLogIn();
+      localStorage.setItem("user", JSON.stringify(inputs));
       router.push("/pages/creator");
     }
   };

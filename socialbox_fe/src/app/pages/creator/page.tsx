@@ -78,18 +78,19 @@ export const Creator = () => {
   const [isPreview, setIsPreview] = useState({ state: false });
   const router = useRouter();
   const [inputs, setInputs] = useState({
-    username: "",
-    password: "",
+    description: "",
+    name: "",
+    type: "",
   });
   const [validationMessage, setValidationMessage] = useState("");
 
   const validateForm = () => {
-    if (!inputs.username.trim()) {
-      setValidationMessage("Username is required");
+    if (!inputs.description.trim()) {
+      setValidationMessage("Description is required");
       return false;
     }
-    if (inputs.password.length < 8) {
-      setValidationMessage("Password must be at least 8 characters long");
+    if (!inputs.name.trim()) {
+      setValidationMessage("name is required");
       return false;
     }
     setValidationMessage("");
@@ -99,6 +100,35 @@ export const Creator = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (validateForm()) {
+      let tempAssets:any = "";
+      try {
+        tempAssets = JSON.parse(localStorage.getItem("assets"));
+        console.log(tempAssets);
+      } catch (error) {}
+      console.log(tempAssets);
+
+      tempAssets === ""
+        ? localStorage.setItem(
+            "assets",
+            JSON.stringify([
+              {
+                name: inputs.name,
+                type: inputs.type,
+                description: inputs.description,
+              },
+            ])
+          )
+        : localStorage.setItem(
+            "assets",
+            JSON.stringify([
+              ...tempAssets,
+              {
+                name: inputs.name,
+                type: inputs.type,
+                description: inputs.description,
+              },
+            ])
+          );
       router.push("/pages/creator_dashboard");
     }
   };
@@ -116,29 +146,57 @@ export const Creator = () => {
           <div className={isPreview.state ? "creator_preview_container" : ""}>
             <Previews setIsShow={setIsPreview} />
             {isPreview.state ? (
-              <form>
-                <div className="login_label">NFT name</div>
-                <input
-                  className="login_input_username"
-                  value={inputs.username}
-                  onChange={(e) =>
-                    setInputs({ ...inputs, username: e.target.value })
-                  }
-                  placeholder="NFT name here"
-                />
-                <div className="login_label">Description</div>
-                <input
-                  onChange={(e) =>
-                    setInputs({ ...inputs, password: e.target.value })
-                  }
-                  value={inputs.password}
-                  className="login_input_password"
-                  placeholder="Enter your NFT description"
-                />
-                {validationMessage && (
-                  <div className="login_errorMessage">{validationMessage}</div>
-                )}
-              </form>
+              <>
+                <div className="flex_grow" />
+                <form className="full_width creator_form">
+                  <div className="flex full_width">
+                    <div className="full_width creator_mr18">
+                      <div className="login_label">NFT name</div>
+                      <input
+                        className="login_input_username"
+                        value={inputs.name}
+                        onChange={(e) =>
+                          setInputs({ ...inputs, name: e.target.value })
+                        }
+                        placeholder="NFT name here"
+                      />
+                    </div>
+                    <div className="full_width">
+                      <div className="login_label">Type</div>
+                      <select
+                        className="signup_input signup_m24"
+                        name="userType"
+                        value={inputs.type}
+                        onChange={(e) =>
+                          setInputs({ ...inputs, type: e.target.value })
+                        }
+                      >
+                        <option value="" disabled>
+                          Select your image type
+                        </option>
+                        <option value="Background">Background</option>
+                        <option value="hat">hat</option>
+                        <option value="body">body</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="login_label">Description</div>
+                  <input
+                    onChange={(e) =>
+                      setInputs({ ...inputs, description: e.target.value })
+                    }
+                    value={inputs.description}
+                    className="login_input_password"
+                    placeholder="Enter your NFT description"
+                  />
+                  {validationMessage && (
+                    <div className="login_errorMessage">
+                      {validationMessage}
+                    </div>
+                  )}
+                </form>
+              </>
             ) : (
               <></>
             )}

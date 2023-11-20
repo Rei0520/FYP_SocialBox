@@ -1,17 +1,23 @@
 "use client";
-import { useContext } from "react";
 import "./header.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { img } from "@/app/assets";
 import Image from "next/image";
-import { MyyStateContext, contextProps } from "@/app/provider";
+import { useEffect, useState } from "react";
 
 export const Header = () => {
   let tabs = ["About", "Dashboard", "Collections", "Whitepaper", "Contact Us"];
-  const state = useContext(MyyStateContext);
   const pathname = usePathname();
+  const [user, setUser] = useState<any>(localStorage.getItem("user") || "");
 
+  try {
+    user ? setUser(JSON.parse(user)) : "";
+  } catch (error) {}
+  useEffect(() => {
+    setUser(localStorage.getItem("user") || "");
+    console.log();
+  }, [pathname]);
   return (
     <div className="container">
       <div className="flex_align_center inner_container">
@@ -47,7 +53,7 @@ export const Header = () => {
           }}
           className="flex_align_center"
         >
-          {state?.auth.username ? (
+          {user.username ? (
             <Image
               className="user_image_valid"
               alt="user image"
@@ -57,10 +63,11 @@ export const Header = () => {
             <div className="user_image"></div>
           )}
           <Link
-            href={state?.auth.username ? "" : "/pages/login"}
+            onClick={() => localStorage.removeItem("user")}
+            href={user.username ? "/" : "/pages/login"}
             className="username flex_align_center "
           >
-            {state?.auth.username ? state.auth.username : "Login / Sign up"}
+            {user.username ? user.username : "Login / Sign up"}
           </Link>
         </div>
       </div>

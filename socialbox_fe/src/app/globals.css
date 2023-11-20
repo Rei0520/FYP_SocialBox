@@ -145,6 +145,9 @@ body {
 .full_height {
   height: 100%;
 }
+.full_width {
+  width: 100%;
+}
 
 .flex_column {
   flex-direction: column;
