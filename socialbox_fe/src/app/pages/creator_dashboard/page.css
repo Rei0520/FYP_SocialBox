@@ -44,8 +44,24 @@
 }
 
 .dashboard_card {
-  width: 258px;
+  width: 160px;
   height: 300px;
   border-radius: 8px;
   background: #272a34;
+}
+
+.dashboard_img {
+  width: 160px;
+  height: 160px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.dashboard_img_title {
+  color: #38f2af;
+  font-family: Oswald;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-left: 8px;
 }

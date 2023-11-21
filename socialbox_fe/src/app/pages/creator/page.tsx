@@ -9,12 +9,20 @@ import { useRouter } from "next/navigation";
 
 interface previewProps {
   setIsShow: any;
+  setInputs: any;
+  inputs: any;
 }
 
-function Previews({ setIsShow }: previewProps) {
+function Previews({ setIsShow, setInputs, inputs }: previewProps) {
   const [files, setFiles] = useState<any>([]);
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => {
+      acceptedFiles.map((file) =>
+        setInputs({
+          ...inputs,
+          url: file.preview,
+        })
+      );
       setFiles(
         acceptedFiles.map((file) =>
           Object.assign(file, {
@@ -52,6 +60,7 @@ function Previews({ setIsShow }: previewProps) {
   useEffect(() => {
     // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
     files.length !== 0 ? setIsShow({ state: true }) : setIsShow(false);
+
     return () =>
       files.forEach((file: any) => URL.revokeObjectURL(file.preview));
   }, [files]);
@@ -81,6 +90,7 @@ export const Creator = () => {
     description: "",
     name: "",
     type: "",
+    url: "",
   });
   const [validationMessage, setValidationMessage] = useState("");
 
@@ -100,13 +110,13 @@ export const Creator = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (validateForm()) {
-      let tempAssets:any = "";
-      try {
-        tempAssets = JSON.parse(localStorage.getItem("assets"));
-        console.log(tempAssets);
-      } catch (error) {}
-      console.log(tempAssets);
-
+      let tempAssets: any = "";
+      // try {
+      //   tempAssets = JSON.parse(localStorage.getItem("assets"));
+      //   console.log(tempAssets);
+      // } catch (error) {}
+      console.log(inputs);
+      localStorage.removeItem("assets");
       tempAssets === ""
         ? localStorage.setItem(
             "assets",
@@ -115,6 +125,7 @@ export const Creator = () => {
                 name: inputs.name,
                 type: inputs.type,
                 description: inputs.description,
+                url: inputs.url,
               },
             ])
           )
@@ -126,6 +137,7 @@ export const Creator = () => {
                 name: inputs.name,
                 type: inputs.type,
                 description: inputs.description,
+                url: inputs.url,
               },
             ])
           );
@@ -144,7 +156,11 @@ export const Creator = () => {
           style={{ marginRight: isPreview.state ? "0px" : "238px" }}
         >
           <div className={isPreview.state ? "creator_preview_container" : ""}>
-            <Previews setIsShow={setIsPreview} />
+            <Previews
+              setInputs={setInputs}
+              inputs={inputs}
+              setIsShow={setIsPreview}
+            />
             {isPreview.state ? (
               <>
                 <div className="flex_grow" />
