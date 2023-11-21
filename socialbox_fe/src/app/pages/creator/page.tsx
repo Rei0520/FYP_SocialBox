@@ -111,10 +111,10 @@ export const Creator = () => {
     e.preventDefault();
     if (validateForm()) {
       let tempAssets: any = "";
-      // try {
-      //   tempAssets = JSON.parse(localStorage.getItem("assets"));
-      //   console.log(tempAssets);
-      // } catch (error) {}
+      try {
+        tempAssets = JSON.parse(localStorage.getItem("assets"));
+        console.log(tempAssets);
+      } catch (error) {}
       console.log(inputs);
       localStorage.removeItem("assets");
       tempAssets === ""
