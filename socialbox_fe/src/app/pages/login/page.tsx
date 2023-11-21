@@ -29,7 +29,7 @@ export const LogIn = () => {
       setValidationMessage("Username is required");
       return false;
     }
-    if (inputs.password.length < 8) {
+    if (inputs.password.length < 6) {
       setValidationMessage("Password must be at least 8 characters long");
       return false;
     }
@@ -41,7 +41,15 @@ export const LogIn = () => {
     e.preventDefault();
     if (validateForm()) {
       onLogIn();
-      localStorage.setItem("user", JSON.stringify(inputs));
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          ...inputs,
+          wallet: "metaMask",
+          email: "example@gmail.com",
+          userType: "creator",
+        })
+      );
       router.push("/pages/creator");
     }
   };

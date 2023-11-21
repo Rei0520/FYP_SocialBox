@@ -1,13 +1,20 @@
+"use client";
 import { useRouter } from "next/navigation";
 import "./wallet.css";
 import Modal from "react-modal";
 
-export const Wallet = ({ isOpen, onRequestClose }: any) => {
+export const Wallet = ({ isOpen, onRequestClose, inputs }: any) => {
   const router = useRouter();
-  const handleClick = () => {
-    router.push("/");
-  };
+  const handleClick = (e: any) => {
+    localStorage.setItem("user", JSON.stringify({ ...inputs, wallet: e }));
+    if (inputs.userType === "Creator") {
 
+      router.push("/pages/creator");
+    } else {
+      router.push("/");
+
+    }
+  };
   return (
     <Modal
       isOpen={isOpen}
@@ -28,29 +35,35 @@ export const Wallet = ({ isOpen, onRequestClose }: any) => {
           </p>
         </div>
         <div className="wallet-list">
-          <div onClick={handleClick} className="wallet-item popular">
+          <div
+            onClick={() => handleClick("MetaMask")}
+            className="wallet-item popular"
+          >
             <span className="wallet-name">MetaMask</span>
             <span className="tag">POPULAR</span>
           </div>
-          <div onClick={handleClick} className="wallet-item">
+          <div onClick={() => handleClick("Coinbase")} className="wallet-item">
             <span className="wallet-name">Coinbase Wallet</span>
           </div>
-          <div onClick={handleClick} className="wallet-item">
+          <div
+            onClick={() => handleClick("WalletConnect")}
+            className="wallet-item"
+          >
             <span className="wallet-name">WalletConnect</span>
           </div>
-          <div onClick={handleClick} className="wallet-item">
+          <div onClick={() => handleClick("Ledger")} className="wallet-item">
             <span className="wallet-name">Ledger</span>
           </div>
-          <div onClick={handleClick} className="wallet-item">
+          <div onClick={() => handleClick("Phantom")} className="wallet-item">
             <span className="wallet-name">Phantom</span>
           </div>
-          <div onClick={handleClick} className="wallet-item">
+          <div onClick={() => handleClick("BitKeep")} className="wallet-item">
             <span className="wallet-name">BitKeep</span>
             <span className="tag">BNB CHAIN</span>
           </div>
         </div>
         <div className="flex_center">
-          <button className="view-all ">View all</button>
+          <button className="view-all ">View All</button>
         </div>
       </div>
     </Modal>

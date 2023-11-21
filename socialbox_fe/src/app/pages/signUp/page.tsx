@@ -10,7 +10,7 @@ export const SignUp = () => {
   const [wallet, setWallet] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
-    userName: "",
+    username: "",
     userType: "",
     password: "",
     confirmPassword: "",
@@ -30,9 +30,9 @@ export const SignUp = () => {
       tempErrors.email = "Email is not valid";
     }
 
-    // Username validation
-    if (!formData.userName.trim()) {
-      tempErrors.userName = "User name is required";
+    // username validation
+    if (!formData.username.trim()) {
+      tempErrors.username = "User name is required";
     }
 
     // User type validation
@@ -94,11 +94,11 @@ export const SignUp = () => {
         <input
           className="signup_input signup_m24"
           placeholder="Your name here"
-          name="userName"
-          value={formData.userName}
+          name="username"
+          value={formData.username}
           onChange={handleChange}
         />
-        {errors.userName && <div className="error">{errors.userName}</div>}
+        {errors.username && <div className="error">{errors.username}</div>}
 
         <div className="signup_label">User Type</div>
         <select
@@ -150,7 +150,7 @@ export const SignUp = () => {
           </Link>
         </div>
       </div>
-      <Wallet isOpen={wallet} onRequestClose={() => setWallet(false)} />
+      <Wallet isOpen={wallet} onRequestClose={() => setWallet(false)} inputs={formData} />
     </div>
   );
 };
