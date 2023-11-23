@@ -35,6 +35,7 @@ export const CreatorDashboard = () => {
       tempAssets.splice(index, 1);
       console.log(tempAssets);
       setAssets(tempAssets);
+      localStorage.setItem("assets", JSON.stringify(tempAssets));
     };
 
     // type === tabs[tab] ? (
