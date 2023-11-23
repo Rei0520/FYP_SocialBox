@@ -47,7 +47,7 @@ export const LogIn = () => {
           ...inputs,
           wallet: "metaMask",
           email: "example@gmail.com",
-          userType: "creator",
+          userType: "Creator",
         })
       );
       router.push("/pages/creator");

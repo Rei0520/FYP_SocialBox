@@ -22,10 +22,10 @@ export const Header = () => {
     <div className="container">
       <div className="flex_align_center inner_container">
         <div className="flex_align_center">
-          <Link href={"/"}>
+          <Link href={user.userType === "Creator" ? "/pages/creator" : "/"}>
             <Image className="logo" src={img.logo} alt="logo" />
           </Link>
-          <Link href={"/"}>
+          <Link href={user.userType === "Creator" ? "/pages/creator" : "/"}>
             <div className="brand_name">SocialBox</div>
           </Link>
         </div>

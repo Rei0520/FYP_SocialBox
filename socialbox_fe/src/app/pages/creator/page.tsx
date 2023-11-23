@@ -113,9 +113,9 @@ export const Creator = () => {
       let tempAssets: any = "";
       try {
         tempAssets = JSON.parse(localStorage.getItem("assets"));
-        console.log(tempAssets);
+        // console.log(tempAssets);
       } catch (error) {}
-      console.log(inputs);
+      // console.log(inputs);
       localStorage.removeItem("assets");
       tempAssets === ""
         ? localStorage.setItem(
@@ -191,8 +191,8 @@ export const Creator = () => {
                           Select your image type
                         </option>
                         <option value="Background">Background</option>
-                        <option value="hat">hat</option>
-                        <option value="body">body</option>
+                        <option value="Hats">hat</option>
+                        <option value="Body">body</option>
                       </select>
                     </div>
                   </div>
