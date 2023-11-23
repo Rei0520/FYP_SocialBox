@@ -114,11 +114,14 @@ export const Creator = () => {
       let tempAssets: any = [];
       try {
         tempAssets = JSON.parse(localStorage.getItem("assets"));
-        // console.log(tempAssets);
-      } catch (error) {}
+        console.log(tempAssets);
+      } catch (error) {
+        // console.log(error);
+        
+      }
       // console.log(inputs);
       localStorage.removeItem("assets");
-      tempAssets.equal([])
+      tempAssets === null
         ? localStorage.setItem(
             "assets",
             JSON.stringify([
@@ -146,7 +149,7 @@ export const Creator = () => {
     }
   };
 
-  console.log(isPreview.state);
+  // console.log(isPreview.state);
 
   return (
     <div className="flex_center full_height creator_page_border">
