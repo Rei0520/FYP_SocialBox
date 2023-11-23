@@ -8,6 +8,10 @@ import twitter from "./twitter.png";
 import whitepaper from "./whitepaper.png";
 import uploadIcon from "./uploadIcon.png";
 import preview from "./a20d17d944e25c930d8004fe0ef8973b.png";
+import neon from "./neon.png";
+import mirror_glass from "./mirror_glass.png";
+import oil from "./oil.png";
+import top from "./top.png";
 
 export const img = {
   WebLogo: webLogo,
@@ -19,5 +23,9 @@ export const img = {
   telegram: telegram,
   whitepaper: whitepaper,
   uploadIcon: uploadIcon,
-  preview: preview
+  preview: preview,
+  neon: neon,
+  mirror_glass: mirror_glass,
+  oil: oil,
+  top: top,
 };

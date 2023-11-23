@@ -1,7 +1,7 @@
 .webLogo {
-  width: 841px;
-  height: 322px;
-  margin-right: 186px;
+  width: 500px;
+  height: 200px;
+  /* margin-right: 186px; */
 }
 
 .text_container {
@@ -54,4 +54,87 @@
 .landingpage_social_icon {
   margin-right: 13px;
   cursor: pointer;
+}
+
+.landing_card {
+  width: 182px;
+  height: 265px;
+  max-height: 265px;
+  border-radius: 8px;
+  background: #272a34;
+}
+
+.landing_img {
+  width: 182px;
+  height: 124px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.landing_img_title {
+  color: #38f2af;
+  font-family: Oswald;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-left: 8px;
+}
+.landing_card_creator {
+  color: var(--Gray-3, #828282);
+  font-family: Oswald;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 8px;
+}
+.landing_card_type {
+  color: #38f2af;
+  font-family: Oswald;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 8px;
+}
+.landing_card_price {
+  border-radius: 28px;
+  border: 1px solid #38f2af;
+  padding: 4px 12px;
+  box-shadow: 0px 0px 24px 0px rgba(253, 230, 63, 0.1);
+  color: #38f2af;
+  font-family: Oswald;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-right: 8px;
+}
+
+.landing_card hr {
+  margin: none;
+  margin-top: 39px;
+  background: #343741;
+  height: 1px;
+  border: none;
+}
+
+.landing_card_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 44px;
+}
+
+.landing_gap {
+  column-gap: 30px;
+}
+
+.landing {
+  margin: 0px 200px;
+}
+
+.landing_card_bottom_container {
+  height: 30px;
 }
