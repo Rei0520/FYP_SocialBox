@@ -65,3 +65,26 @@
   line-height: normal;
   margin-left: 8px;
 }
+
+.dashboard_mint_button {
+    width: 120px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 50px;
+    background: linear-gradient(82deg, #00efa3 -3.24%, #00aeee 102.8%);
+    color: #fff;
+    font-family: Titan One;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+    cursor: pointer;
+}
+
+.dashboard_card_delete_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+}
