@@ -1,11 +1,8 @@
-.webLogo {
-  width: 841px;
-  height: 322px;
-  margin-right: 186px;
-}
-
 .text_container {
   width: 553px;
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
 }
 
 .title {

@@ -34,12 +34,11 @@ export const CreatorDashboard = () => {
       <div key={name} className="dashboard_card">
         <Image
           className="dashboard_img"
-          width={100}
-          height={100}
           src={url}
           alt={name}
         />
         <div className="dashboard_img_title">{name}</div>
+        
       </div>
     ) : (
       <></>
