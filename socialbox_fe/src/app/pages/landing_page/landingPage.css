@@ -6,6 +6,9 @@
 
 .text_container {
   width: 553px;
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
