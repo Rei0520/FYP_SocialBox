@@ -16,7 +16,7 @@ export const CreatorDashboard = () => {
       setAssets(JSON.parse(localStorage.getItem("assets")));
     } catch (error) {}
   }, [tab]);
-  const tabs = ["Body", "Hats", "Background"];
+  const tabs = ["Body", "Hats", "Background", "Mouth", "Eyes"];
 
   interface cardProps {
     name: string;

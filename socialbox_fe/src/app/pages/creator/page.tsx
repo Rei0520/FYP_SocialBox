@@ -197,6 +197,8 @@ export const Creator = () => {
                         <option value="Background">Background</option>
                         <option value="Hats">hat</option>
                         <option value="Body">body</option>
+                        <option value="Eyes">Eyes</option>
+                        <option value="Mouth">Mouth</option>
                       </select>
                     </div>
                   </div>
