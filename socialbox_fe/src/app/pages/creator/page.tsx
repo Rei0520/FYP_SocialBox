@@ -6,6 +6,7 @@ import "./creator.css";
 import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { useRouter } from "next/navigation";
+import { equal } from "assert";
 
 interface previewProps {
   setIsShow: any;
@@ -110,14 +111,14 @@ export const Creator = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (validateForm()) {
-      let tempAssets: any = "";
+      let tempAssets: any = [];
       try {
         tempAssets = JSON.parse(localStorage.getItem("assets"));
         // console.log(tempAssets);
       } catch (error) {}
       // console.log(inputs);
       localStorage.removeItem("assets");
-      tempAssets === ""
+      tempAssets.equal([])
         ? localStorage.setItem(
             "assets",
             JSON.stringify([
